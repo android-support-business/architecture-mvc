@@ -25,10 +25,28 @@ android {
 }
 
 dependencies {
+    // google support library apis
+    implementation "com.android.support:support-v4:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+
+    // libs apis
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // test apis
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
-    //    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+
     implementation project(':mvc')
+
+    // 解决65535方法数限制
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // amlzq support library apis
+    implementation "com.amlzq.android:log:${rootProject.ext.logVersion}"
+    implementation "com.amlzq.android:annotations:${rootProject.ext.annotationsVersion}"
+    implementation "com.amlzq.android:utils:${rootProject.ext.utilsVersion}"
+    implementation "com.amlzq.android:ui:$rootProject.ext.uiVersion"
+    implementation "com.amlzq.android:io:$rootProject.ext.ioVersion"
 }
